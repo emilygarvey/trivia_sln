@@ -32,8 +32,10 @@ function App() {
       <p>The correct answer is {answerState}</p>
 
       <NextQuestion
-        goToNextQuestion={() => setCurrentQuestionNum(currentQuestionNum + 1)}
-        resetAnswerState={() => setAnswerState("unanswered")}
+        goToNextQuestion={() => {
+          setCurrentQuestionNum(currentQuestionNum + 1);
+          setAnswerState("unanswered");
+        }}
       />
     </div>
   );
