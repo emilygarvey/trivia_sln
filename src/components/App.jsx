@@ -1,13 +1,10 @@
 import React, { Component, useState } from "react";
 import "../css/App.css";
 import data from "../sample_data.json";
-// import components here
 
 function App() {
   const [answerState, setAnswerState] = useState("unanswered");
   const [currentQuestionNum, setCurrentQuestionNum] = useState(0);
-
-  //function handleClick() {}
 
   return (
     <div className="app">
@@ -45,10 +42,13 @@ function Question(props) {
   return (
     <div>
       {props.question}
-      <Answer answer={props.choices[0]} />
+      {props.choices.map((choice) => {
+        return <Answer answer={choice} />;
+      })}
+      {/* <Answer answer={props.choices[0]} />
       <Answer answer={props.choices[1]} />
       <Answer answer={props.choices[2]} />
-      <Answer answer={props.choices[3]} />
+      <Answer answer={props.choices[3]} /> */}
     </div>
   );
 }
