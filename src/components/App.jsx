@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import "../css/App.css";
 import "../css/fonts.css";
 import data from "../sample_data.json";
@@ -48,7 +48,7 @@ function App() {
       >
         Click for the correct answer
       </button> */}
-      <p>{questionAnswered()}</p>
+      {questionAnswered()}
       {currentQuestionNum < data.length - 1 && answerState !== "unanswered" ? (
         <NextQuestion
           goToNextQuestion={() => {
