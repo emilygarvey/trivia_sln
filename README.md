@@ -29,7 +29,7 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 
 ## Day 2: Nested components and state
 
-## Goal 1: Render the answer choices from sample_data.json on the screen.
+### Goal 1: Render the answer choices from sample_data.json on the screen.
 
 - [ ] In App.jsx, create an Answer component.
 - [ ] Add props to `<Answer />` with the text "Answer goes here".
@@ -40,7 +40,7 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 
 > ![Day 2.0 goal](https://i.imgur.com/VpA8eRc.png)
 
-## Goal 2: Render a button on the screen that reveals the correct answer when clicked.
+### Goal 2: Render a button on the screen that reveals the correct answer when clicked.
 
 - [ ] Add state to `<App />` using the `useState` React hook to keep track of if the question is answered.
 - [ ] Add a button to the App component that updates state to `isAnswered` when clicked.
@@ -48,23 +48,25 @@ In this unit, coders will work in groups to build a project using HTML, CSS, Rea
 
 > ![Day 2.5 goal - unanswered](https://i.imgur.com/JI6GroE.png) >![Day 2.5 goal - answered](https://i.imgur.com/rufYX84.png)
 
-## Day 3.0: Event handlers
+## Day 3: Event handlers
 
 ### Goal 1: Add functionality to your "Next Question" button so that it renders the next question when clicked.
 
 - [ ] Add state to `<App />` using the `useState` React hook to keep track of the current question number.
   - [ ] Replace the current question number variable that you wrote in Day 1.
 - [ ] Create a function that updates the state to the next question number.
-- [ ] Make a prop on <NextQuestion /> to pass the prop down to the button element to call that function when the button is clicked.
+- [ ] Make a prop on `<NextQuestion />` to pass the prop down to the button element to call that function when the button is clicked.
 - [ ] Check that every part of your question and answer updates to reflect the current question number.
 - [ ] Reset the state of `isAnswered` when the Next Question button is clicked.
-- [ ] BONUS: Add a [ternary operator](http://mzl.la/3nCo8bq) to hide `<NextQuestion />` when there are no more next questions.
+- [ ] BONUS: Add [conditional rendering](https://reactjs.org/docs/conditional-rendering.html) to hide `<NextQuestion />` when there are no more next questions.
 
 > ![Day 3.0 goal](https://i.imgur.com/fetraPF.png) >![Day 3.0 with bonus](https://i.imgur.com/GruM8g2.png)
 
 ### Goal 2: Add functionality so that when the user clicks on an answer choice, the correct answer appears.
 
-- [ ] Inside the map function for the Answer components, add an event handler.
+- [ ] Inside the map function for the Answer components, add an event handler that updates the state of `isAnswered` to be the choice that the user clicks.
+  - [ ] HINT: Use props to pass down the state from `<App />`.
+  - [ ] HINT: Don't forget to pass your `onClick` down as a prop as well.
 - [ ] Inside `<App />` (below state and above return), write a conditional that checks if the answer clicked is the correct answer.
   - [ ] Display text on the screen telling the user if their answer choice was correct.
   - [ ] Display text on the screen telling the user what the correct answer was.
