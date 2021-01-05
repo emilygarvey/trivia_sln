@@ -9,7 +9,7 @@ body {
 }
 
 .title {
-  font-family: "East Sea Dokdo", cursive;
+  font-family: "Do Hyeon", sans-serif;
   font-size: 60px;
 }
 
@@ -26,6 +26,6 @@ body {
 }
 
 .prompt {
-  font-family: "East Sea Dokdo", cursive;
-  font-size: 30px;
+  font-family: "Do Hyeon", sans-serif;
+  font-size: 22px;
 }
