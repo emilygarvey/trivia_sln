@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import "../css/App.css";
+import "../css/fonts.css";
 import data from "../sample_data.json";
 
 function App() {
@@ -8,7 +9,7 @@ function App() {
 
   function questionAnswered() {
     if (answerState === "unanswered") {
-      return <p>Choose an answer</p>;
+      return <p className="prompt">Click an answer above</p>;
     }
     if (
       answerState ===
@@ -16,15 +17,19 @@ function App() {
         data[currentQuestionNum].question.correct_choice_index
       ]
     ) {
-      return <p>You chose {answerState}. That is correct!</p>;
+      return (
+        <p className="prompt">You chose {answerState}. That is correct!</p>
+      );
     } else {
-      return <p>You chose {answerState}. That is incorrect.</p>;
+      return (
+        <p className="prompt">You chose {answerState}. That is incorrect.</p>
+      );
     }
   }
 
   return (
     <div className="app">
-      <h1>Trivia!</h1>
+      <h1 className="title">Trivia!</h1>
       {/* <p>Click the correct answer choice below...</p> */}
       <Question
         question={data[currentQuestionNum].question.text}
@@ -44,7 +49,7 @@ function App() {
         Click for the correct answer
       </button> */}
       <p>{questionAnswered()}</p>
-      {currentQuestionNum < data.length - 1 ? (
+      {currentQuestionNum < data.length - 1 && answerState !== "unanswered" ? (
         <NextQuestion
           goToNextQuestion={() => {
             setCurrentQuestionNum(currentQuestionNum + 1);
@@ -52,7 +57,7 @@ function App() {
           }}
         />
       ) : (
-        <p>Quiz over!</p>
+        <p></p>
       )}
     </div>
   );
@@ -61,19 +66,21 @@ function App() {
 function Question(props) {
   return (
     <div>
-      {props.question}
-      {props.choices.map((choice) => {
-        return (
-          <Answer
-            answer={choice}
-            onClick={() => props.setAnswerState(choice)}
-          />
-        );
-      })}
-      {/* <Answer answer={props.choices[0]} />
+      <div className="question">{props.question}</div>
+      <div className="answers">
+        {props.choices.map((choice) => {
+          return (
+            <Answer
+              answer={choice}
+              onClick={() => props.setAnswerState(choice)}
+            />
+          );
+        })}
+        {/* <Answer answer={props.choices[0]} />
       <Answer answer={props.choices[1]} />
       <Answer answer={props.choices[2]} />
       <Answer answer={props.choices[3]} /> */}
+      </div>
     </div>
   );
 }
